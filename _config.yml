@@ -1,7 +1,7 @@
 ### your site title here
 
 title: Rahil Makadia
-description: Ph.D. Candidate | Department of Aerospace Engineering | University of Illinois at Urbana-Champaign
+description: Aerospace Engineering Ph.D. Candidate | University of Illinois at Urbana-Champaign
 
 baseurl: /website #name of GitHub repository
 url: "https://rahil-makadia.github.io" #custom url to be used instead of GitHub repository
@@ -14,11 +14,11 @@ paginate_path: /blog/page:num/
 
 # Social media links in footer
 # twitter: "#"
-linkedin: "#"
+linkedin: "rahil-makadia"
 # stackoverflow: "#"
-github: "#"
-researchgate: "#"
-orcid: "#"
+github: "rahil-makadia"
+researchgate: "rahil-makadia"
+orcid: "0000-0001-9265-2230"
 # quora: "#"
 # instagram: "#"
 # facebook: "#"
