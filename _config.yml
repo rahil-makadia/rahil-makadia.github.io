@@ -1,11 +1,11 @@
 ### your site title here
 
-title: Your Name
-description: subtitle | affiliations | motto
+title: Rahil Makadia
+description: Ph.D. Candidate | Department of Aerospace Engineering | University of Illinois at Urbana-Champaign
 
 baseurl: /website #name of GitHub repository
-url: "" #custom url to be used instead of GitHub repository
-email: #
+url: "https://rahil-makadia.github.io" #custom url to be used instead of GitHub repository
+email: makadia2@illinois.edu
 
 # Pagination
 paginate: 4
@@ -13,15 +13,15 @@ permalink: /blog/:year/:title/
 paginate_path: /blog/page:num/
 
 # Social media links in footer
-twitter: "#"
+# twitter: "#"
 linkedin: "#"
-stackoverflow: "#"
+# stackoverflow: "#"
 github: "#"
 researchgate: "#"
 orcid: "#"
-quora: "#"
-instagram: "#"
-facebook: "#"
+# quora: "#"
+# instagram: "#"
+# facebook: "#"
 
 
 # Markdown
