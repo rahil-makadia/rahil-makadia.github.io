@@ -6,7 +6,7 @@ published: true
 ---
 
 <embed
-src="/assets/files/cv.pdf#toolbar=0"
+src="{{ site.baseurl }}/pdfs/cv.pdf"
 width="100%"
 height="1050px"
 />
