@@ -2,8 +2,8 @@
 
 title: Rahil Makadia
 description: Ph.D. Candidate | University of Illinois at Urbana-Champaign
-baseurl: "" #name of GitHub repository
-url: "https://rahil-makadia.github.io/website" #custom url to be used instead of GitHub repository
+baseurl: "/website" #name of GitHub repository
+url: "" #custom url to be used instead of GitHub repository
 email: makadia2@illinois.edu
 
 # Pagination
