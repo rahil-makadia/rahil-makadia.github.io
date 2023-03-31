@@ -3,3 +3,24 @@ _site/
 .jekyll-metadata
 .jekyll-cache
 .DS_Store
+
+# latex files
+*.aux
+*.bbl
+*.bcf
+*.blg
+*.dvi
+*.fdb_latexmk
+*.fls
+*.idx
+*.ilg
+*.ind
+*.lof
+*.log
+*.lot
+*.out
+# *.pdf
+*.ps
+*.synctex.gz
+*.toc
+*.gz
