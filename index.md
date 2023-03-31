@@ -3,19 +3,14 @@ layout: about
 permalink: /
 profile:
   align: right
-  image: profile.png
+  image: profile.jpg
 published: true
 ---
 
-[Gradfolio](https://github.com/jitinnair1/gradfolio){:target="_blank"} is a responsive, dark-mode ready Jekyll theme designed keeping academia in mind. The easiest way to install the theme is to fork it using GitHub. Check the README file for [instructions](https://github.com/jitinnair1/gradfolio#installation){:target="_blank"}.
+# About Me
 
-If you want to use this space to write your biography here, edit the `index.md` file. You can put a picture in, too. Rename your picture to `profile.png` and put it in the `assets/images/` folder.
+Hi there! I am a graduate student and a NASA Space Technology Graduate Research Opportunity (NSTGRO) fellow studying Aerospace Engineering at the University of Illinois at Urbana-Champaign. My research in the [APEX Lab at UIUC](http://apexgroup.web.illinois.edu/) focuses on planetary defense, specifically NEO deflection using kinetic impactors. I've had the pleasure of working on a couple of asteroid science missions. I am currently a member of the science investigation team for the [Double Asteroid Redirection Test (DART)](https://dart.jhuapl.edu/) mission and have interned on the [OSIRIS-REx/OSIRIS-APEX](https://www.asteroidmission.org/) mission.
 
-The social-icons footer can be used to link profiles from GitHub, OrcID and ReasearchGate aprart form the usual Twitter, LinkedIn and Facebook. You can add your user ID in the `_config.yml` file to link your accounts.
+In the past I've worked on a variety of projects, ranging from reusable crewed lunar landers and habitats for Mars missions to aerogravity assists using blunt bodies at Venus.
 
-PS: If you liked the theme, do star it on GitHub!
-
-### Also, check out:
-
-- [autoCV](https://github.com/jitinnair1/autocv) - a LaTeX template that builds and deploys the CV using GitHub Actions, so you will always have a ready link for your latest CV
-- [Tail](https://github.com/jitinnair1/tail) - a minimal, quick-setup template for a blog
+Feel free to reach out at any of the links at the bottom of this page with questions, opportunities, or just to say hi!
