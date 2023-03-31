@@ -8,8 +8,7 @@ published: true
 
 <div class="ProjectContainer">
 
-	<div class="gallery">
-
+  <div class="gallery">
 
   {% for project in site.projects %}
 
@@ -40,6 +39,6 @@ published: true
 
   {% endfor %}
 
-	</div>
+  </div>
 
 </div>
