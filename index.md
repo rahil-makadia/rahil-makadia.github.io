@@ -1,4 +1,5 @@
 ---
+title: About Me
 layout: about
 permalink: /
 profile:
@@ -6,8 +7,6 @@ profile:
   image: profile.jpg
 published: true
 ---
-
-# About Me
 
 Hi there! I am a graduate student and a NASA Space Technology Graduate Research Opportunity (NSTGRO) fellow studying Aerospace Engineering at the University of Illinois at Urbana-Champaign. My research in the [APEX Lab at UIUC](http://apexgroup.web.illinois.edu/) focuses on planetary defense, specifically NEO deflection using kinetic impactors. I've had the pleasure of working on a couple of asteroid science missions. I am currently a member of the science investigation team for the [Double Asteroid Redirection Test (DART)](https://dart.jhuapl.edu/) mission and have interned on the [OSIRIS-REx/OSIRIS-APEX](https://www.asteroidmission.org/) mission.
 
