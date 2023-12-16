@@ -1,7 +1,7 @@
 ### your site title here
 
 title: Rahil Makadia
-description: Ph.D. Candidate | University of Illinois at Urbana-Champaign
+description: Ph.D. Candidate at UIUC
 baseurl: "" #name of GitHub repository
 url: "rahil-makadia.github.io" #custom url to be used instead of GitHub repository
 email: makadia2@illinois.edu
@@ -47,12 +47,10 @@ collections:
     output: true
     permalink: /projects/:name/
     order:
-      - shortProject.md
-      - longerProjectTitle.md
-      - redirect.md
-      - project4.md
-      - project5.md
-      - project6.md
+      - dart.md
+      - grss.md
+      - orex.md
+      - vaga.md
 
 sass:
   sass_dir: /assets/css/_sass
