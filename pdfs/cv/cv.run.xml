@@ -83,7 +83,8 @@
       <file>cv.bcf</file>
     </requires>
     <requires type="editable">
-      <file>pub_journal.bib</file>
+      <file>pub_journal_prim.bib</file>
+      <file>pub_journal_sec.bib</file>
       <file>pub_conf.bib</file>
     </requires>
   </external>

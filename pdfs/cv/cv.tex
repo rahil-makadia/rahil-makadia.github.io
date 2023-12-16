@@ -61,12 +61,25 @@
 
 %for publications
 \usepackage[backend=biber,style=phys,sorting=none,maxbibnames=3]{biblatex}
+%%%%%%%%%% begin reverse numbering for biblatex %%%%%%%%%%
+% Count total number of entries in each refsection
+\AtDataInput{
+    \csnumgdef{entrycount:\therefsection}{
+    \csuse{entrycount:\therefsection}+1}
+}
+% Print the labelnumber as the total number of entries in the
+% current refsection, minus the actual labelnumber, plus one
+\DeclareFieldFormat{labelnumber}{\mkbibdesc{#1}}    
+\newrobustcmd*{\mkbibdesc}[1]{%
+\number\numexpr\csuse{entrycount:\therefsection}+1-#1\relax}
+%%%%%%%%%% end reverse numbering for biblatex %%%%%%%%%%
 
 %Setup hyperref package, and colours for links
 \usepackage[unicode, draft=false]{hyperref}
 \definecolor{linkcolour}{rgb}{0,0.2,0.6}
 \hypersetup{colorlinks,breaklinks,urlcolor=linkcolour,linkcolor=linkcolour}
-\addbibresource{pub_journal.bib}
+\addbibresource{pub_journal_prim.bib}
+\addbibresource{pub_journal_sec.bib}
 \addbibresource{pub_conf.bib}
 \setlength\bibitemsep{1em}
 
@@ -274,7 +287,20 @@ University of Illinois at Urbana-Champaign & \hfill \\[3.75pt]
 %----------------------------------------------------------------------------------------
 \newpage
 \section{Journal Articles}
-\begin{refsection}[pub_journal.bib]
+\vspace{0.05in}
+\begin{center}
+\textsc{Primary Author}
+\end{center}
+\begin{refsection}[pub_journal_prim.bib]
+\nocite{*}
+\printbibliography[heading=none]
+\end{refsection}
+
+\vspace{0.05in}
+\begin{center}
+\textsc{Secondary Author}
+\end{center}
+\begin{refsection}[pub_journal_sec.bib]
 \nocite{*}
 \printbibliography[heading=none]
 \end{refsection}
