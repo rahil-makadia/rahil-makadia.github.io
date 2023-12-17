@@ -36,10 +36,12 @@
 .fa-github,
 .fa-orcid,
 .fa-researchgate,
-.fa-envelope
-.fa-quora
-.fa-instagram
-.fa-stack-overflow {
+.fa-envelope,
+.fa-quora,
+.fa-instagram,
+.fa-stack-overflow,
+.fa-google-scholar,
+.fa-ads {
   font-size: 25px;
 }
 
@@ -144,6 +146,26 @@
 
 .rounded-social-buttons .social-button.stackoverflow:hover, .rounded-social-buttons .social-button.stackoverflow:focus {
   color: #f48024;
+  background: #fefefe;
+  border-color: #5dd1b0;
+}
+
+.rounded-social-buttons .social-button.google-scholar {
+  background: #336cf0;
+}
+
+.rounded-social-buttons .social-button.google-scholar:hover, .rounded-social-buttons .social-button.google-scholar:focus {
+  color: #336cf0;
+  background: #fefefe;
+  border-color: #5dd1b0;
+}
+
+.rounded-social-buttons .social-button.ads {
+  background: #245eda;
+}
+
+.rounded-social-buttons .social-button.ads:hover, .rounded-social-buttons .social-button.ads:focus {
+  color: #245eda;
   background: #fefefe;
   border-color: #5dd1b0;
 }

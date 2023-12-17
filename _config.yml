@@ -1,9 +1,9 @@
 ### your site title here
 
 title: Rahil Makadia
-description: Ph.D. Candidate at UIUC
-baseurl: "" #name of GitHub repository
-url: "rahil-makadia.github.io" #custom url to be used instead of GitHub repository
+description: Rahil Makadia's Website
+# baseurl: "" #name of GitHub repository
+# url: "" #custom url to be used instead of GitHub repository
 email: makadia2@illinois.edu
 
 # Pagination
@@ -18,6 +18,8 @@ linkedin: "rahil-makadia"
 github: "rahil-makadia"
 researchgate: "rahil-makadia"
 orcid: "0000-0001-9265-2230"
+google-scholar: "m1jVeSMAAAAJ"
+ads: "Makadia,Rahil"
 # quora: "#"
 # instagram: "#"
 # facebook: "#"

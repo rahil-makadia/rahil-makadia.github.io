@@ -4,7 +4,7 @@
 <a title="{{ _locale_string_email }}"
 class="social-button email" itemprop="email"
 href="mailto:{{ site.email | encode_email }}" target="_blank">
-<i class="far fa-envelope"></i>
+<i class="fas fa-envelope"></i>
 </a>
 {%- endif -%}
 
@@ -26,12 +26,30 @@ target="_blank">
 </a>
 {%- endif -%}
 
+{%- if site.ads -%}
+<a title="{{ _locale_string_follow | replace: '[NAME]', 'SAO/NASA Astrophysics Data System' }}"
+class="social-button ads" itemprop="sameAs"
+href="https://ui.adsabs.harvard.edu/search/q=author:%22{{site.ads}}%22"
+target="_blank">
+<i class="fab fa-amilia"></i>
+</a>
+{%- endif -%}
+
 {%- if site.researchgate -%}
 <a title="{{ _locale_string_follow | replace: '[NAME]', 'ResearchGate' }}"
 class="social-button researchgate"
 href="https://www.researchgate.net/profile/{{ site.researchgate }}" itemprop="sameAs"
 target="_blank">
 <i class="fab fa-researchgate"></i>
+</a>
+{%- endif -%}
+
+{%- if site.google-scholar -%}
+<a title="{{ _locale_string_follow | replace: '[NAME]', 'Google Scholar' }}"
+class="social-button google-scholar" itemprop="sameAs"
+href="https://scholar.google.com/citations?user={{site.google-scholar}}"
+target="_blank">
+<i class="fab fa-google-scholar"></i>
 </a>
 {%- endif -%}
 
@@ -85,7 +103,7 @@ target="_blank">
 class="social-button stackoverflow" itemprop="sameAs"
 href="https://stackoverflow.com/users/{{ site.stackoverflow }}"
 target="_blank">
-<i class="fab fa-brands fa-stack-overflow"></i>
+<i class="fab fa-stack-overflow"></i>
 </a>
 {%- endif -%}
 
