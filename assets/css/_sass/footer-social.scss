@@ -45,6 +45,10 @@
   font-size: 25px;
 }
 
+.rounded-social-buttons .fa-github {
+  font-size: 27.5px;
+}
+
 .rounded-social-buttons .social-button.facebook {
   background: #3b5998;
 }
@@ -86,13 +90,13 @@
 }
 
 .rounded-social-buttons .social-button.email {
-  background: #60c17d;
+  background: $brand-color;
 }
 
 .rounded-social-buttons .social-button.email:hover, .rounded-social-buttons .social-button.email:focus {
-  color: #60c17d;
+  color: $brand-color;
   background: #fefefe;
-  border-color: #60c17d;
+  border-color: $brand-color;
 }
 
 .rounded-social-buttons .social-button.orcid {

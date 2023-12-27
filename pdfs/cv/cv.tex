@@ -102,16 +102,24 @@
 %----------------------------------------------------------------------------------------
 \digitaltrue
 
+% if not digital
+\ifdigital
+\else
+% change hyperlinks to black everywhere
+\definecolor{linkcolour}{rgb}{0,0,0}
+\hypersetup{urlcolor=linkcolour}
+\fi
+
 \begin{tabularx}{\linewidth}{@{} C @{}}
 \Huge{Rahil Makadia} \\[7.5pt]
 \ifdigital
-\href{mailto:makadia2@illinois.edu}{\raisebox{-0.05\height}\faEnvelope \ Email} \ $|$ \ 
-\href{https://github.com/rahil-makadia}{\raisebox{-0.05\height}\faGithub\ GitHub} \ $|$ \ 
-\href{https://rahil-makadia.github.io}{\raisebox{-0.05\height}\faGlobeAmericas \ Website} \ $|$ \ 
-\href{https://linkedin.com/in/rahil-makadia}{\raisebox{-0.05\height}\faLinkedin\ LinkedIn} \ $|$ \ 
-\href{https://www.researchgate.net/profile/Rahil-Makadia}{\raisebox{-0.05\height}\faResearchgate\ ResearchGate} \\
+\href{mailto:makadia2@illinois.edu}{\raisebox{-0.05\height}\faEnvelope \ Email} \ $|$ \
+307 Talbot Laboratory, 104 S Wright St, Urbana IL 61801, USA \ $|$ \
+\href{https://rahil-makadia.github.io}{\raisebox{-0.05\height}\faGlobeAmericas \ Website} \\
 \else
-\href{https://rahil-makadia.github.io}{\raisebox{-0.05\height}\faGlobeAmericas \ https://rahil-makadia.github.io} \ $|$ \ 
+% change hyperlink color to black everywhere
+\href{mailto:makadia2@illinois.edu}{\raisebox{-0.05\height}\faEnvelope \ makadia2@illinois.edu} \\
+\href{https://rahil-makadia.github.io}{\raisebox{-0.05\height}\faGlobeAmericas \ https://rahil-makadia.github.io} \ $|$ \
 307 Talbot Laboratory, 104 S Wright St, Urbana IL 61801, USA \\
 \fi
 \end{tabularx}
@@ -252,7 +260,7 @@ Languages  &  English, Gujarati, Hindi, French \\[3.75pt]
 \section{Awards and Affiliations}
 \begin{tabularx}{\linewidth}{@{}l X@{}}
 \textbf{NASA Space Technology Graduate Research Opportunities Fellow} & \hfill Aug 2022 - present \\[3.75pt]
-NSTGRO award from NASA Space Technology Mission Directorate (STMD) & \hfill \\[3.75pt]
+NSTGRO award from NASA Space Technology Mission Directorate & \hfill \\[3.75pt]
 \end{tabularx}
 \begin{tabularx}{\linewidth}{@{}l X@{}}
 \textbf{ARCS Foundation Scholar Award} & \hfill Aug 2023 - present \\[3.75pt]
@@ -260,7 +268,7 @@ Achievement Rewards for College Scientists (ARCS) Foundation Illinois Chapter & 
 \end{tabularx}
 \begin{tabularx}{\linewidth}{@{}l X@{}}
 \textbf{Double Asteroid Redirection Test (DART) Investigation Team Member} & \hfill Dec 2020 - Nov 2023 \\[3.75pt]
-NASA/Johns Hopkins University Applied Physics Laboratory (APL) & \hfill \\[3.75pt]
+NASA/Johns Hopkins University Applied Physics Laboratory (JHUAPL) & \hfill \\[3.75pt]
 \end{tabularx}
 \begin{tabularx}{\linewidth}{@{}l X@{}}
 \textbf{John C. Mather Nobel Scholar} & \hfill Jul 2022 - Jun 2023 \\[3.75pt]

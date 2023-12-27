@@ -50,9 +50,7 @@ collections:
     permalink: /projects/:name/
     order:
       - dart.md
-      - grss.md
       - orex.md
-      - vaga.md
 
 sass:
   sass_dir: /assets/css/_sass

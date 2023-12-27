@@ -1,9 +1,15 @@
 ---
 layout: default
 ---
-<h1 class="post-headline">{{page.title}}</h1>
-<p class="meta"><small>{{page.date | date: '%B %d, %Y'}}</small></p>
+<h1 class="post-headline" style="text-align: center;">{{page.title}}</h1>
+<p class="meta" style="text-align: center;"><small>{{page.date | date: '%B %d, %Y'}}</small></p>
 
+<!-- justify text -->
+<style>
+    p {
+        text-align: justify;
+    }
+</style>
 {{content}}
 
 <!-- Comments only for posts -->
