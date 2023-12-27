@@ -48,10 +48,12 @@ My Work (Pre-impact)
 Before the DART spacecraft impacted Dimorphos, I worked on a project to ensure that no achievable value of $\beta_\odot$ would put the Didymos system on a collision course with the Earth. This involved doing a systematic sweep of both reasonable and unreasonably high values of $\beta_\odot$ to study the future close approaches of the Didymos system with the Earth. The below figure shows the location of the Didymos system (and the corresponding 3-$\sigma$ ellipses) for different impact outcomes on the B-plane (if you are unfamiliar with the B-plane, check out [this paper](https://doi.org/10.1007/s10569-019-9914-4){:target="_blank"}).
 
 <img alt="2062 Close Approach Location" src="/assets/images/projects/dart/ca1.png" width="49.8%"/>
-<img alt="2123 Close Approach Location" src="/assets/images/projects/dart/ca2.png" width="49%"/> *B-plane uncertainty ellipses for varying heliocentric impact outcomes for the 2062 (left) and 2123 (right) close approaches.*
+<img alt="2123 Close Approach Location" src="/assets/images/projects/dart/ca2.png" width="49%"/>
+*B-plane uncertainty ellipses for varying heliocentric impact outcomes for the 2062 (left) and 2123 (right) close approaches.*
 
 <img alt="2062 Close Approach Deflection" src="/assets/images/projects/dart/beta_multiplier_1.png" width="49.4%"/>
-<img alt="2123 Close Approach Deflection" src="/assets/images/projects/dart/beta_multiplier_2.png" width="49.7%"/> *B-plane locations for varying $\beta_\odot$ values for the 2062 (left) and 2123 (right) close approaches.*
+<img alt="2123 Close Approach Deflection" src="/assets/images/projects/dart/beta_multiplier_2.png" width="49.7%"/>
+*B-plane locations for varying $\beta_\odot$ values for the 2062 (left) and 2123 (right) close approaches.*
 
 Additionally, the above figure shows the deflection of the Didymos system for different $\beta_\odot$ values. The deflection is measured in terms of the change in the Didymos system's nominal B-plane location. Given that these close approaches happen millions of kilometers away from the Earth, and the deflection corresponding to an unrealistically high $\beta_\odot$ value of 10 is only a few hundred kilometers, we can safely say that the Didymos system will not be on a collision course with the Earth due to the DART experiment. For more details on this work, check out [my pre-DART impact paper](https://doi.org/10.3847/PSJ/ac7de7){:target="_blank"}.
 
@@ -67,4 +69,5 @@ Once we knew that the DART impact would not put the Didymos system on collision 
 One key result we found from this work on measurability of $\beta_\odot$ is the high correlation between the $\beta_\odot$ estimate and the $A_{\text{2}}$ parameter. This $A_{\text{2}}$ parameter is a transverse nongravitational acceleration term that is used to model the Yarkovsky effect on an asteroid. The Yarkovsky effect is a phenomenon caused by the uneven heating of an asteroid by the Sun. This uneven heating causes the asteroid to emit more thermal radiation from the side that is facing away from the Sun. This causes a net force on the asteroid that can change its orbit over time. The $A_{\text{2}}$ parameter is a measure of this force. The below figure shows the $\beta_\odot$-$A_{\text{2}}$ estimate and associated uncertainty for the four observation scenarios. For more details on this work, stay tuned for my paper (currently under peer review at the Planetary Science Journal).
 
 <img alt="Heliocentric beta - Yarkovsky effect dependence 1" src="/assets/images/projects/dart/204_beta_yarko_1.png" width="50.2%"/>
-<img alt="Heliocentric beta - Yarkovsky effect dependence 2" src="/assets/images/projects/dart/204_beta_yarko_2.png" width="48.8%"/> *$\beta_\odot$-$A_{\text{2}}$ covariance mapping for all four future observation scenarios considered in this work (left) and zoomed in view of Cases 3 and 4 (right).*
+<img alt="Heliocentric beta - Yarkovsky effect dependence 2" src="/assets/images/projects/dart/204_beta_yarko_2.png" width="48.8%"/>
+*$\beta_\odot$-$A_{\text{2}}$ covariance mapping for all four future observation scenarios considered in this work (left) and zoomed in view of Cases 3 and 4 (right).*
