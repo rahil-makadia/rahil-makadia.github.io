@@ -142,13 +142,14 @@ B.S. in Aerospace Engineering, University of Illinois at Urbana-Champaign & \hfi
 \section{Work Experience}
 \begin{tabularx}{\linewidth}{ @{}l r@{} }
 \textbf{NASA Jet Propulsion Laboratory} & \hfill Advisors: Dr. Steven Chesley, Dr. Davide Farnocchia \\[3.75pt]
-NSTGRO Visiting Technologist & \hfill May 2023 - Aug 2023 \\[3.75pt]
+NSTGRO Visiting Technologist & \hfill May 2023 - Aug 2023, Mar 2024 - Jun 2024 \\[3.75pt]
     \multicolumn{2}{@{}X@{}}{
         \begin{minipage}[t]{\linewidth}
             \begin{itemize}[nosep,after=\strut, leftmargin=1em, itemsep=3pt]
                 \item[--] Validated an efficient solar system propagator with sub\,-1\,km position accuracy over 250 years compared to JPL's internal small body software.
                 \item[--] Developed an orbit determination submodule alongside the propagator that has sub\,-\,1$\sigma$ agreement with JPL small-body orbit solutions.
-                \item[--] Presented a publicly available Python package, \textsc{grss}, to allow the scientific community to accurately propagate and determine the orbits of solar system bodies. 
+                \item[--] Presented a publicly available Python package, \textsc{grss}, to allow the scientific community to accurately propagate and determine the orbits of solar system bodies.
+                \item[--] Implemented ability to compute locations of gravitational keyholes, which are predictors of future asteroid impacts with Earth.
             \end{itemize}
         \end{minipage}
     }
@@ -160,7 +161,7 @@ OSIRIS-REx/OSIRIS-APEX CelNav Intern & \hfill Jun 2022 - Aug 2022 \\[3.75pt]
     \multicolumn{2}{@{}X@{}}{
         \begin{minipage}[t]{\linewidth}
             \begin{itemize}[nosep,after=\strut, leftmargin=1em, itemsep=3pt]
-                \item[--] Developed simulations to assess performance of CelNav (Celestial Navigation) using onboard optical instruments during the OSIRIS-APEX cruise phase.
+                \item[--] Developed simulations to assess performance of Celestial Navigation (CelNav) using onboard optical instruments during the OSIRIS-APEX cruise phase.
                 \item[--] Simulated more than 8,000 solar system bodies to obtain optimal observable clusters for the spacecraft.
                 \item[--] Performed covariance analysis using NASA's MONTE software to study the spacecraft's state uncertainty on its way to asteroid (99942) Apophis.
             \end{itemize}
@@ -172,33 +173,30 @@ OSIRIS-REx/OSIRIS-APEX CelNav Intern & \hfill Jun 2022 - Aug 2022 \\[3.75pt]
 \section{Research Experience}
 \begin{tabularx}{\linewidth}{ @{}l r@{} }
 \textbf{Astrodynamics and Planetary Exploration Group} & \hfill Advisor: Dr. Siegfried Eggl \\[3.75pt]
-Double Asteroid Redirection Test (DART) Mission & \hfill May 2020 - present \\[3.75pt]
-    \multicolumn{2}{@{}X@{}}{
-        \begin{minipage}[t]{\linewidth}
-            \begin{itemize}[nosep,after=\strut, leftmargin=1em, itemsep=3pt]
-                \item[--] Analyzed high-fidelity kinetic impactor simulation results from NASA's Jet Propulsion Laboratory (JPL) for impacts in the (65803) Didymos binary asteroid system.
-                % \item[--] Simulated the effect of DART spacecraft's impact on Dimorphos and the change in the system's heliocentric orbit.
-                \item[--] Implemented a novel method to impart momentum changes in the Didymos system after the DART impact.
-                \item[--] Produced a post-deflection impact risk assessment for Didymos using parallelized Monte Carlo simulations.
-                \item[--] Generated updated B-plane maps to conclude that the Didymos system will not collide with the Earth after the DART impact.
-                % \item[--] Simulated expected post-DART radio and optical observations of the Didymos system for covariance analysis.
-                \item[--] Wrote MATLAB and Python parameter estimation packages to assess measurability of the heliocentric momentum enhancement from the DART impact.
-            \end{itemize}
-        \end{minipage}
+Gauss-Radau Small-body Simulator (\textsc{grss}) & \hfill Nov 2022 - present \\[3.75pt]
+\multicolumn{2}{@{}X@{}}{
+    \begin{minipage}[t]{\linewidth}
+        \begin{itemize}[nosep,after=\strut, leftmargin=1em, itemsep=3pt]
+            \item[--] Released an open-source Python library with a C++ binding for use by the planetary defense community.
+            \item[--] Developed a high-accuracy propagator for solar system bodies using Gauss-Radau quadrature.
+            \item[--] Built an orbit determination code for estimating small body orbits using optical and radar observations.
+        \end{itemize}
+    \end{minipage}
     }
 \end{tabularx}
 
 \begin{tabularx}{\linewidth}{ @{}l r@{} }
-    Gauss-Radau Small-body Simulator (GRSS) & \hfill Nov 2022 - present \\[3.75pt]
-        \multicolumn{2}{@{}X@{}}{
-            \begin{minipage}[t]{\linewidth}
-                \begin{itemize}[nosep,after=\strut, leftmargin=1em, itemsep=3pt]
-                    \item[--] Released an open-source Python library with a C++ binding for use by the planetary defense community.
-                    \item[--] Developed a high-accuracy propagator for solar system bodies using Gauss-Radau quadrature.
-                    \item[--] Built an orbit determination code for estimating small body orbits using optical and radar observations.
-                \end{itemize}
-            \end{minipage}
-        }
+Double Asteroid Redirection Test (DART) Mission & \hfill May 2020 - Feb 2024 \\[3.75pt]
+\multicolumn{2}{@{}X@{}}{
+    \begin{minipage}[t]{\linewidth}
+        \begin{itemize}[nosep,after=\strut, leftmargin=1em, itemsep=3pt]
+            \item[--] Analyzed high-fidelity kinetic impactor simulation results from NASA's Jet Propulsion Laboratory (JPL) for impacts in the (65803) Didymos binary asteroid system.
+            \item[--] Implemented a novel method to impart momentum changes in the Didymos system after the DART impact.
+            \item[--] Generated updated B-plane maps to conclude that the Didymos system will not collide with the Earth after the DART impact.
+            \item[--] Wrote MATLAB and Python parameter estimation packages to assess measurability of the heliocentric momentum enhancement from the DART impact.
+        \end{itemize}
+    \end{minipage}
+}
 \end{tabularx}
 
 \begin{tabularx}{\linewidth}{ @{}l r@{} }
@@ -246,7 +244,7 @@ Teaching Assistant for AE 352: Aerospace Dynamical Systems & \hfill Aug 2021 - D
 %----------------------------------------------------------------------------------------
 \section{Skills}
 \begin{tabularx}{\linewidth}{@{}l X@{}}
-Programming Languages  &  Python, C/C++, MATLAB, R, Fortran \\[3.75pt]
+Programming Languages  &  Python, C/C++, MATLAB, R/RStudio, Fortran \\[3.75pt]
 Software Tools  &  \LaTeX, Git \\[3.75pt]
 Prepackaged Tools  &  MONTE, GMAT, FreeFlyer \\[3.75pt]
 Operating Systems  &  Linux, MacOS, Windows \\[3.75pt]
@@ -295,23 +293,10 @@ University of Illinois at Urbana-Champaign & \hfill \\[3.75pt]
 %----------------------------------------------------------------------------------------
 \newpage
 \section{Journal Articles}
-% \vspace{0.05in}
-% \begin{center}
-% \textsc{Significant Author}
-% \end{center}
 \begin{refsection}[pub_journal_prim.bib]
 \nocite{*}
 \printbibliography[heading=none]
 \end{refsection}
-
-% \vspace{0.05in}
-% \begin{center}
-% \textsc{Supporting Author}
-% \end{center}
-% \begin{refsection}[pub_journal_sec.bib]
-% \nocite{*}
-% \printbibliography[heading=none]
-% \end{refsection}
 
 \section{Conference and Meeting Proceedings}
 \begin{refsection}[pub_conf.bib]
