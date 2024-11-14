@@ -1,7 +1,7 @@
 ---
 layout: post
 title: DART
-description: How do we protect Earth from asteroids?
+description: Can we push asteroids away from the Earth?
 ---
 
 <!-- http://www.unexpected-vortices.com/sw/rippledoc/quick-markdown-example.html -->

@@ -1,7 +1,7 @@
 ---
 layout: post
 title: OSIRIS-REx / OSIRIS-APEX
-description: How to use planets, moons, and asteroids to find a spacecraft?
+description: Can a spacecraft use planets, moons, and asteroids to find itself?
 ---
 
 <!-- http://www.unexpected-vortices.com/sw/rippledoc/quick-markdown-example.html -->
