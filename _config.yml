@@ -1,8 +1,13 @@
 title: Rahil Makadia
 description: Ph.D. Candidate at UIUC
-# baseurl: "" #name of GitHub repository
-# url: "" #custom url to be used instead of GitHub repository
+baseurl: ""
+url: "https://rahil-makadia.github.io"
 email: makadia2@illinois.edu
+first_name: Rahil
+last_name: Makadia
+author: Rahil Makadia
+lang: en
+keywords: "Rahil, Makadia, UIUC, planetary defense, asteroids, comets, spacecraft"
 
 # Pagination
 # paginate: 4
@@ -25,9 +30,6 @@ ads: "Makadia,Rahil"
 # Markdown
 highlighter: rouge
 markdown: kramdown
-
-# Tracker
-analytics:
 
 # optimization -> compress.html
 compress_html:
