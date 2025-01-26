@@ -31,7 +31,7 @@
 %other packages for formatting
 \RequirePackage{color}
 \RequirePackage{graphicx}
-\usepackage[usenames,dvipsnames]{xcolor}
+\usepackage[dvipsnames]{xcolor}
 \usepackage[scale=0.9]{geometry}
 
 %tabularx environment
@@ -67,21 +67,35 @@
     \csnumgdef{entrycount:\therefsection}{
     \csuse{entrycount:\therefsection}+1}
 }
-% Print the labelnumber as the total number of entries in the
-% current refsection, minus the actual labelnumber, plus one
+% Print the label number as the total number of entries in the
+% current refsection, minus the actual label number, plus one
 \DeclareFieldFormat{labelnumber}{\mkbibdesc{#1}}    
 \newrobustcmd*{\mkbibdesc}[1]{%
 \number\numexpr\csuse{entrycount:\therefsection}+1-#1\relax}
 %%%%%%%%%% end reverse numbering for biblatex %%%%%%%%%%
 
-%Setup hyperref package, and colours for links
+%Setup hyperref package, and colors for links
 \usepackage[unicode, draft=false]{hyperref}
 \definecolor{linkcolour}{rgb}{0,0.2,0.6}
 \hypersetup{colorlinks,breaklinks,urlcolor=linkcolour,linkcolor=linkcolour}
-\addbibresource{pub_journal_prim.bib}
-\addbibresource{pub_journal_sec.bib}
+\addbibresource{pub_journal.bib}
 \addbibresource{pub_conf.bib}
+\addbibresource{pub_invited.bib}
 \setlength\bibitemsep{1em}
+
+\usepackage{fancyhdr}
+\fancypagestyle{default}{
+  \fancyhf{} % No header/footer
+}
+\fancypagestyle{last-page}{
+  \fancyhf{} % No header/footer
+  % red text
+  \fancyfoot[C]{\textcolor{Black!60}{Last updated: \today}} % Centre footer
+  \renewcommand{\headrulewidth}{0pt} % No header rule
+  \renewcommand{\footrulewidth}{0pt} % No footer rule
+}
+\pagestyle{default}% Default page style
+\AtEndDocument{\thispagestyle{last-page}}% Page style at \end{document}
 
 %for social icons
 \usepackage{fontawesome5}
@@ -141,8 +155,8 @@ B.S. in Aerospace Engineering, University of Illinois at Urbana-Champaign & \hfi
 % Work Experience
 \section{Work Experience}
 \begin{tabularx}{\linewidth}{ @{}l r@{} }
-\textbf{NASA Jet Propulsion Laboratory} & \hfill Advisors: Dr. Steven Chesley, Dr. Davide Farnocchia \\[3.75pt]
-NSTGRO Visiting Technologist & \hfill May 2023 - Aug 2023, Mar 2024 - Jun 2024 \\[3.75pt]
+\textbf{NASA Jet Propulsion Laboratory (JPL)} & \hfill Advisors: Dr. Steven Chesley, Dr. Davide Farnocchia \\[3.75pt]
+Visiting Technologist / NSTGRO Fellow & \hfill May 2023 - Aug 2023, Mar 2024 - Jun 2024 \\[3.75pt]
     \multicolumn{2}{@{}X@{}}{
         \begin{minipage}[t]{\linewidth}
             \begin{itemize}[nosep,after=\strut, leftmargin=1em, itemsep=3pt]
@@ -156,14 +170,14 @@ NSTGRO Visiting Technologist & \hfill May 2023 - Aug 2023, Mar 2024 - Jun 2024 \
 \end{tabularx}
 
 \begin{tabularx}{\linewidth}{ @{}l r@{} }
-\textbf{NASA Goddard Space Flight Center} & \hfill Advisors: Kenneth Getzandanner, Andrew Liounis \\[3.75pt]
+\textbf{NASA Goddard Space Flight Center (GSFC)} & \hfill Advisors: Kenneth Getzandanner, Andrew Liounis \\[3.75pt]
 OSIRIS-REx/OSIRIS-APEX CelNav Intern & \hfill Jun 2022 - Aug 2022 \\[3.75pt]
     \multicolumn{2}{@{}X@{}}{
         \begin{minipage}[t]{\linewidth}
             \begin{itemize}[nosep,after=\strut, leftmargin=1em, itemsep=3pt]
                 \item[--] Developed simulations to assess performance of Celestial Navigation (CelNav) using onboard optical instruments during the OSIRIS-APEX cruise phase.
                 \item[--] Simulated more than 8,000 solar system bodies to obtain optimal observable clusters for the spacecraft.
-                \item[--] Performed covariance analysis using NASA's MONTE software to study the spacecraft's state uncertainty on its way to asteroid (99942) Apophis.
+                \item[--] Performed covariance analysis using JPL's MONTE software to study the spacecraft's state uncertainty on its way to asteroid (99942) Apophis.
             \end{itemize}
         \end{minipage}
     }
@@ -244,11 +258,11 @@ Teaching Assistant for AE 352: Aerospace Dynamical Systems & \hfill Aug 2021 - D
 %----------------------------------------------------------------------------------------
 \section{Skills}
 \begin{tabularx}{\linewidth}{@{}l X@{}}
-Programming Languages  &  Python, C/C++, MATLAB, R/RStudio, Fortran \\[3.75pt]
-Software Tools  &  \LaTeX, Git \\[3.75pt]
-Prepackaged Tools  &  MONTE, GMAT, FreeFlyer \\[3.75pt]
-Operating Systems  &  Linux, MacOS, Windows \\[3.75pt]
-Languages  &  English, Gujarati, Hindi, French \\[3.75pt]
+Programming Languages  &  Python, C/C++, Fortran, MATLAB, R/RStudio \\[3.75pt]
+Software Tools         &  \LaTeX, Git                               \\[3.75pt]
+Prepackaged Tools      &  MONTE, GMAT, FreeFlyer                    \\[3.75pt]
+Operating Systems      &  Linux, MacOS, Windows                     \\[3.75pt]
+Languages              &  English, Gujarati, Hindi, French          \\[3.75pt]
 \end{tabularx}
 
 %----------------------------------------------------------------------------------------
@@ -264,6 +278,10 @@ NSTGRO fellowship from NASA Space Technology Mission Directorate & \hfill \\[3.7
 Achievement Rewards for College Scientists (ARCS) Foundation Illinois Chapter & \hfill \\[3.75pt]
 \end{tabularx}
 \begin{tabularx}{\linewidth}{@{}l X@{}}
+\textbf{Best Visual Poster Award} & \hfill Feb 2024 \\[3.75pt]
+UIUC Aerospace Engineering Department & \hfill \\[3.75pt]
+\end{tabularx}
+\begin{tabularx}{\linewidth}{@{}l X@{}}
 \textbf{Double Asteroid Redirection Test (DART) Investigation Team Member} & \hfill Dec 2020 - Nov 2023 \\[3.75pt]
 NASA/Johns Hopkins University Applied Physics Laboratory (JHUAPL) & \hfill \\[3.75pt]
 \end{tabularx}
@@ -272,28 +290,32 @@ NASA/Johns Hopkins University Applied Physics Laboratory (JHUAPL) & \hfill \\[3.
 National Space Grant Foundation & \hfill \\[3.75pt]
 \end{tabularx}
 \begin{tabularx}{\linewidth}{@{}l X@{}}
+\textbf{AIAA Award for Aerospace Excellence for DART Investigation Team} & \hfill May 2023 \\[3.75pt]
+American Institute of Aeronautics and Astronautics (AIAA) & \hfill \\[0.75pt]
+\end{tabularx}
+\begin{tabularx}{\linewidth}{@{}l X@{}}
 \textbf{Fellowship for Outstanding Academic and Research Achievement} & \hfill Apr 2023 \\[3.75pt]
-Aerospace Engineering Department at the University of Illinois at Urbana-Champaign & \hfill \\[3.75pt]
+UIUC Aerospace Engineering Department & \hfill \\[3.75pt]
 \end{tabularx}
 \begin{tabularx}{\linewidth}{@{}l X@{}}
 \textbf{President's Award} & \hfill Aug 2017 - Dec 2020 \\[3.75pt]
 University of Illinois at Urbana-Champaign & \hfill \\[3.75pt]
 \end{tabularx}
-\begin{tabularx}{\linewidth}{@{}l X@{}}
-\textbf{Hans von Muldau Team Award for Best Project} & \hfill October 2019 \\[3.75pt]
-70\textsuperscript{th} International Astronautical Congress (IAC), Washington D.C. & \hfill \\[3.75pt]
-\end{tabularx}
-\begin{tabularx}{\linewidth}{@{}l X@{}}
-\textbf{Dean's List} & \hfill Spring 2019, Spring 2020 \\[3.75pt]
-University of Illinois at Urbana-Champaign & \hfill \\[3.75pt]
-\end{tabularx}
+% \begin{tabularx}{\linewidth}{@{}l X@{}}
+% \textbf{Hans von Muldau Team Award for Best Project} & \hfill October 2019 \\[3.75pt]
+% 70\textsuperscript{th} International Astronautical Congress (IAC), Washington D.C. & \hfill \\[3.75pt]
+% \end{tabularx}
+% \begin{tabularx}{\linewidth}{@{}l X@{}}
+% \textbf{Dean's List} & \hfill Spring 2019, Spring 2020 \\[3.75pt]
+% University of Illinois at Urbana-Champaign & \hfill \\[3.75pt]
+% \end{tabularx}
 
 %----------------------------------------------------------------------------------------
 %	PUBLICATIONS
 %----------------------------------------------------------------------------------------
 \newpage
 \section{Journal Articles}
-\begin{refsection}[pub_journal_prim.bib]
+\begin{refsection}[pub_journal.bib]
 \nocite{*}
 \printbibliography[heading=none]
 \end{refsection}
@@ -304,10 +326,18 @@ University of Illinois at Urbana-Champaign & \hfill \\[3.75pt]
 \printbibliography[heading=none]
 \end{refsection}
 
+\section{Invited Talks/Seminars}
+\begin{refsection}[pub_invited.bib]
+\nocite{*}
+\printbibliography[heading=none]
+\end{refsection}
+
 %----------------------------------------------------------------------------------------
 %	LAST UPDATED
 %----------------------------------------------------------------------------------------
-\vfill
-\center{\footnotesize Last updated: \today}
-
+% \vfill
+% \center{\footnotesize Last updated: \today}
+% \AtEndDocument{\vfill%
+%     \center{\footnotesize Last updated: \today}
+% }
 \end{document}
