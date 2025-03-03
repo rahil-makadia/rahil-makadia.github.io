@@ -1,67 +1,17 @@
-% Inspired by: https://github.com/jitinnair1/autocv
-%----------------------------------------------------------------------------------------
-%	DOCUMENT DEFINITION
-%----------------------------------------------------------------------------------------
-
-% article class because we want to fully customize the page and not use a cv template
-\documentclass[letterpaper,12pt]{article}
-
-%----------------------------------------------------------------------------------------
-%	FONT
-%----------------------------------------------------------------------------------------
-
-% % fontspec allows you to use TTF/OTF fonts directly
-% \usepackage{fontspec}
-% \defaultfontfeatures{Ligatures=TeX}
-
-% % modified for ShareLaTeX use
-% \setmainfont[
-% SmallCapsFont = Fontin-SmallCaps.otf,
-% BoldFont = Fontin-Bold.otf,
-% ItalicFont = Fontin-Italic.otf
-% ]
-% {Fontin.otf}
-
-%----------------------------------------------------------------------------------------
-%	PACKAGES
-%----------------------------------------------------------------------------------------
-\usepackage{url}
-\usepackage{parskip} 	
-
-%other packages for formatting
-\RequirePackage{color}
-\RequirePackage{graphicx}
-\usepackage[dvipsnames]{xcolor}
-\usepackage[scale=0.9]{geometry}
-
-%tabularx environment
-\usepackage{tabularx}
-
-%for lists within experience section
-\usepackage{enumitem}
-
-% centered version of 'X' col. type
-\newcolumntype{C}{>{\centering\arraybackslash}X} 
-
-%to prevent spillover of tabular into next pages
-\usepackage{supertabular}
-\usepackage{tabularx}
-\newlength{\fullcollw}
-\setlength{\fullcollw}{0.47\textwidth}
-
-%custom \section
-\usepackage{titlesec}				
-\usepackage{multicol}
-\usepackage{multirow}
-
-%CV Sections inspired by: 
-%http://stefano.italians.nl/archives/26
-\titleformat{\section}{\Large\scshape\raggedright}{}{0em}{}[\titlerule]
-\titlespacing{\section}{0pt}{10pt}{10pt}
-
-%for publications
+\documentclass[margin,line]{res}
+% \usepackage[grid, gridunit=in, gridcolor=blue!40, subgridcolor=blue!20]{eso-pic}
+\usepackage{amssymb}
 \usepackage[backend=biber,style=phys,sorting=none,maxbibnames=3]{biblatex}
-%%%%%%%%%% begin reverse numbering for biblatex %%%%%%%%%%
+\usepackage{fancyhdr}
+\usepackage{mathpazo}
+\usepackage{fontawesome}
+\usepackage[dvipsnames]{xcolor}
+\usepackage{hyperref}
+\definecolor{linkcolour}{rgb}{0,0.2,0.6}
+\hypersetup{colorlinks,breaklinks,urlcolor=linkcolour,linkcolor=linkcolour}
+
+%%%%%%%%%% references %%%%%%%%%%
+%%% begin reverse numbering for biblatex
 % Count total number of entries in each refsection
 \AtDataInput{
     \csnumgdef{entrycount:\therefsection}{
@@ -72,272 +22,258 @@
 \DeclareFieldFormat{labelnumber}{\mkbibdesc{#1}}    
 \newrobustcmd*{\mkbibdesc}[1]{%
 \number\numexpr\csuse{entrycount:\therefsection}+1-#1\relax}
-%%%%%%%%%% end reverse numbering for biblatex %%%%%%%%%%
-
-%Setup hyperref package, and colors for links
-\usepackage[unicode, draft=false]{hyperref}
-\definecolor{linkcolour}{rgb}{0,0.2,0.6}
-\hypersetup{colorlinks,breaklinks,urlcolor=linkcolour,linkcolor=linkcolour}
+%%% files for publications
 \addbibresource{pub_journal.bib}
 \addbibresource{pub_conf.bib}
 \addbibresource{pub_invited.bib}
-\setlength\bibitemsep{1em}
-
-\usepackage{fancyhdr}
-\fancypagestyle{default}{
-  \fancyhf{} % No header/footer
+%%% make all authors with last name Makadia and given name Rahil bold
+% last name
+\renewcommand{\mkbibnamefamily}[1]{%
+    % if last name is Makadia or first name is Rahil, make it bold
+    \ifboolexpr{test {\ifdefstring{\namepartfamily}{Makadia}} and test {\ifdefstring{\namepartgiven}{Rahil}}}
+    {\textbf{#1}}
+    {#1}
 }
-\fancypagestyle{last-page}{
-  \fancyhf{} % No header/footer
-  % red text
-  \fancyfoot[C]{\textcolor{Black!60}{Last updated: \today}} % Centre footer
-  \renewcommand{\headrulewidth}{0pt} % No header rule
-  \renewcommand{\footrulewidth}{0pt} % No footer rule
+% first name
+\renewcommand{\mkbibnamegiven}[1]{%
+    % if last name is Makadia or first name is Rahil, make it bold
+    \ifboolexpr{test {\ifdefstring{\namepartfamily}{Makadia}} and test {\ifdefstring{\namepartgiven}{Rahil}}}
+    {\textbf{#1}}
+    {#1}
 }
-\pagestyle{default}% Default page style
-\AtEndDocument{\thispagestyle{last-page}}% Page style at \end{document}
 
-%for social icons
-\usepackage{fontawesome5}
+%%%%%%%%% header and footer %%%%%%%%%
+% set myspacing variable to -1.1in (line 446 from res.cls)
+\newlength{\myspacing}
+\setlength{\myspacing}{-1.1in}
+\pagestyle{fancy}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+\fancypagestyle{lastpage}{
+    \fancyfoot[C]{
+        \hspace{\myspacing}\thepage\\
+        \hspace{\myspacing}\textcolor{Black!50}{Last updated: \today}
+    }
+}
+\fancyhead{}
+\fancyfoot{}
+\fancyfoot[C]{\hspace{\myspacing}\thepage}
 
-%flag for digital CV
-\newif\ifdigital
+%%%%%%%%% lists %%%%%%%%%
+\newlength{\myitemspacing}
+\setlength{\myitemspacing}{0.06in}
+\newenvironment{list_new}{
+    \begin{list}{\scriptsize{$\bullet$}}{%
+        \setlength{\itemsep}{0in}
+        \setlength{\parsep}{\myitemspacing} \setlength{\parskip}{0in}
+        \setlength{\topsep}{0in} \setlength{\partopsep}{0in} 
+        \setlength{\leftmargin}{0.2in}
+        }}
+    {\end{list}
+}
 
-%----------------------------------------------------------------------------------------
-%	BEGIN DOCUMENT
-%----------------------------------------------------------------------------------------
+%%%%%%%%% bool flags %%%%%%%%%
+% add if flag for phone number
+\newif\ifphone
+\phonefalse
+% add if flag for showing all publications
+\newif\ifallpubs
+\allpubstrue
+
 \begin{document}
 
-% non-numbered pages
-\pagestyle{empty} 
-
-%----------------------------------------------------------------------------------------
-%	TITLE
-%----------------------------------------------------------------------------------------
-\digitaltrue
-
-% if not digital
-\ifdigital
+\ifphone
+\hspace{\myspacing}\huge{\bf Rahil Makadia} \hfill \large{Cell: \input{phone.num}}
 \else
-% change hyperlinks to black everywhere
-\definecolor{linkcolour}{rgb}{0,0,0}
-\hypersetup{urlcolor=linkcolour}
+\hspace{\myspacing}\huge{\bf Rahil Makadia}
 \fi
 
-\begin{tabularx}{\linewidth}{@{} C @{}}
-\Huge{Rahil Makadia} \\[7.5pt]
-% \faPhone\,+1 (000) 000-0000 \\[2.5pt]
-\ifdigital
-\href{mailto:makadia2@illinois.edu}{\raisebox{-0.05\height}\faEnvelope \ Email} \ $|$ \
-307 Talbot Laboratory, 104 S Wright St, Urbana IL 61801, USA \ $|$ \
-\href{https://rahil-makadia.github.io}{\raisebox{-0.05\height}\faGlobeAmericas \ Website} \\
-\else
-% change hyperlink color to black everywhere
-\href{mailto:makadia2@illinois.edu}{\raisebox{-0.05\height}\faEnvelope \ makadia2@illinois.edu} \\
-\href{https://rahil-makadia.github.io}{\raisebox{-0.05\height}\faGlobeAmericas \ https://rahil-makadia.github.io} \ $|$ \
-307 Talbot Laboratory, 104 S Wright St, Urbana IL 61801, USA \\
-\fi
-\end{tabularx}
+\normalsize
+\begin{resume}
 
-%----------------------------------------------------------------------------------------
-%	EDUCATION
-%----------------------------------------------------------------------------------------
-\section{Education}
-\begin{tabularx}{\linewidth}{@{}l X@{}}
-Ph.D. in Aerospace Engineering, University of Illinois at Urbana-Champaign & \hfill Jan 2021 - Dec 2025 \\
-B.S. in Aerospace Engineering, University of Illinois at Urbana-Champaign & \hfill Aug 2017 - Dec 2020 \\
-\end{tabularx}
+\section{\sc Contact Information}
+104 S Wright St., 307 Talbot Lab \hfill \href{mailto:makadia2@illinois.edu}{makadia2@illinois.edu}\\
+Urbana, IL 61801 \hfill \href{https://rahil-makadia.github.io/}{https://rahil-makadia.github.io}
 
-%----------------------------------------------------------------------------------------
-% EXPERIENCE SECTIONS
-%----------------------------------------------------------------------------------------
+\section{\sc Education}
+{\bf University of Illinois at Urbana-Champaign}\hfill Urbana, IL\\
+Ph.D. in Aerospace Engineering \hfill {01/21 - 12/25}\\
+Advisor: Siegfried Eggl\\
+Committee: Steven Chesley, Bruce Conway, Davide Farnocchia, Raluca Ilie\\
+Dissertation: Improvements to the Design and Modeling of Kinetic Impact Missions for Deflecting Near-Earth Asteroids
 
-% Work Experience
-\section{Work Experience}
-\begin{tabularx}{\linewidth}{ @{}l r@{} }
-\textbf{NASA Jet Propulsion Laboratory (JPL)} & \hfill Advisors: Dr. Steven Chesley, Dr. Davide Farnocchia \\[3.75pt]
-Visiting Technologist / NSTGRO Fellow & \hfill May 2023 - Aug 2023, Mar 2024 - Jun 2024 \\[3.75pt]
-    \multicolumn{2}{@{}X@{}}{
-        \begin{minipage}[t]{\linewidth}
-            \begin{itemize}[nosep,after=\strut, leftmargin=1em, itemsep=3pt]
-                \item[--] Validated an efficient solar system propagator with sub\,-1\,km position accuracy over 250 years compared to JPL's internal small body software.
-                \item[--] Developed an orbit determination submodule alongside the propagator that has sub\,-\,1$\sigma$ agreement with JPL small-body orbit solutions.
-                \item[--] Presented a publicly available Python package, \textsc{grss}, to allow the scientific community to accurately propagate and determine the orbits of solar system bodies.
-                \item[--] Implemented ability to compute locations of gravitational keyholes, which are predictors of future asteroid impacts with Earth.
-            \end{itemize}
-        \end{minipage}
-    }
-\end{tabularx}
+{\bf University of Illinois at Urbana-Champaign}\hfill Urbana, IL\\
+B.S. in Aerospace Engineering with Honors \hfill {08/17 - 12/20}
 
-\begin{tabularx}{\linewidth}{ @{}l r@{} }
-\textbf{NASA Goddard Space Flight Center (GSFC)} & \hfill Advisors: Kenneth Getzandanner, Andrew Liounis \\[3.75pt]
-OSIRIS-REx/OSIRIS-APEX CelNav Intern & \hfill Jun 2022 - Aug 2022 \\[3.75pt]
-    \multicolumn{2}{@{}X@{}}{
-        \begin{minipage}[t]{\linewidth}
-            \begin{itemize}[nosep,after=\strut, leftmargin=1em, itemsep=3pt]
-                \item[--] Developed simulations to assess performance of Celestial Navigation (CelNav) using onboard optical instruments during the OSIRIS-APEX cruise phase.
-                \item[--] Simulated more than 8,000 solar system bodies to obtain optimal observable clusters for the spacecraft.
-                \item[--] Performed covariance analysis using JPL's MONTE software to study the spacecraft's state uncertainty on its way to asteroid (99942) Apophis.
-            \end{itemize}
-        \end{minipage}
-    }
-\end{tabularx}
+\section{\sc Work Experience}
+{\bf NASA Jet Propulsion Laboratory (JPL)} \hfill Pasadena, CA\\
+Visiting Technologist / NSTGRO Fellow \hfill 05/23 - 08/23, 03/24 - 06/24\\
+Advisors: Steven Chesley, Davide Farnocchia
+\begin{list_new}
+    \item Validated an efficient orbit propagator with sub\,-1\,km position accuracy over 250 years compared to JPL's internal software.
+    \item Developed an orbit determination submodule around the propagator with sub\,-\,1$\sigma$ agreement with JPL orbit solutions.
+    \item Tested a publicly available Python package, \textsc{grss}, to allow the scientific community to accurately propagate and compute the orbits of solar system objects such as asteroids and comets.
+    \item Implemented ability to compute locations of gravitational keyholes, which are predictors of future asteroid impacts with Earth.
+\end{list_new}
+{\bf NASA Goddard Space Flight Center (GSFC)} \hfill Greenbelt, MD\\
+OSIRIS-REx/OSIRIS-APEX CelNav Intern \hfill 06/22 - 08/22\\
+Advisors: Kenneth Getzandanner, Andrew Liounis
+\begin{list_new}
+    \item Developed simulations to assess performance of Celestial Navigation (CelNav) using onboard cameras during the OSIRIS-APEX cruise phase.
+    \item Simulated more than 8,000 planets/moons/asteroids to obtain optimal observable areas for the spacecraft.
+    \item Performed covariance analyses using MONTE to study the spacecraft's state uncertainty on its way to asteroid (99942) Apophis.
+\end{list_new}
 
-% Research Experience
-\section{Research Experience}
-\begin{tabularx}{\linewidth}{ @{}l r@{} }
-\textbf{Astrodynamics and Planetary Exploration Group} & \hfill Advisor: Dr. Siegfried Eggl \\[3.75pt]
-Gauss-Radau Small-body Simulator (\textsc{grss}) & \hfill Nov 2022 - present \\[3.75pt]
-\multicolumn{2}{@{}X@{}}{
-    \begin{minipage}[t]{\linewidth}
-        \begin{itemize}[nosep,after=\strut, leftmargin=1em, itemsep=3pt]
-            \item[--] Released an open-source Python library with a C++ binding for use by the planetary defense community.
-            \item[--] Developed a high-accuracy propagator for solar system bodies using Gauss-Radau quadrature.
-            \item[--] Built an orbit determination code for estimating small body orbits using optical and radar observations.
-        \end{itemize}
-    \end{minipage}
-    }
-\end{tabularx}
+\section{\sc Research Experience}
+{\bf Astrodynamics and Planetary Exploration Group} \hfill Urbana, IL\\
+Advisor: Siegfried Eggl \hfill 01/21 - 12/25\\
+NASA's Double Asteroid Redirection Test (DART) Mission
+\begin{list_new}
+    \item Analyzed high-fidelity kinetic impactor simulation results from NASA's Jet Propulsion Laboratory (JPL) for impacts in the (65803) Didymos binary asteroid system.
+    \item Implemented a novel method to impart momentum changes in the Didymos system after the DART impact.
+    \item Generated updated B-plane maps to conclude that the Didymos system will not collide with the Earth after the DART impact.
+    \item Wrote MATLAB and Python parameter estimation packages to assess measurability of the heliocentric momentum enhancement from the DART impact.
+\end{list_new}
+Keyhole-aware Deflection Site Selection for Asteroids
+\begin{list_new}
+    \item Developed a novel method to select deflection sites on asteroids that minimize the probability of future Earth impacts.
+    \item Created impact probability maps on the surface of different asteroid shapes to directly compare the safety of available deflection sites.
+    \item Applied new method to a theoretical kinetic impactor mission design for asteroid (101955) Bennu to avoid triggering keyholes between 2178-2200.
+\end{list_new}
+Gauss-Radau Small-body Simulator (\textsc{grss})
+\begin{list_new}
+    \item Developed a high-accuracy propagator for asteroids and comets based on the \texttt{RADAU} and \texttt{IAS15} integrators.
+    \item Built an orbit determination code for estimating small body orbits using optical and radar observations.
+    \item Released an open-source Python library with a C++ binding for use by the planetary defense community.
+\end{list_new}
+State Transition Matrices (STMs) using the Unscented Transform
+\begin{list_new}
+    \item Extended the proven unscented transform formalism to compute the STM in addition to posterior distributions.
+    \item Novel STMs do not require time-consuming partial derivatives or problem-specific finite difference steps, enabling more robust implementation.
+    \item Unscented STMs are a new, easy, and reliable method to compute STMs with unbounded applications in dynamical systems.
+\end{list_new}
+{\bf Aerospace Mission Analysis Laboratory} \hfill Urbana, IL\\
+Advisor: Zachary Putnam \hfill 08/22 - 01/23\\
+Venus Aerogravity Assist Performance Assessment
+\begin{list_new}
+    \item Analyzed Venus aerogravity assist missions that enabled new trajectories to the outer solar system.
+    \item Assessed the performance of blunt-body vehicles and waveriders using MATLAB for varying trajectories and vehicle configurations.
+\end{list_new}
 
-\begin{tabularx}{\linewidth}{ @{}l r@{} }
-Double Asteroid Redirection Test (DART) Mission & \hfill May 2020 - Feb 2024 \\[3.75pt]
-\multicolumn{2}{@{}X@{}}{
-    \begin{minipage}[t]{\linewidth}
-        \begin{itemize}[nosep,after=\strut, leftmargin=1em, itemsep=3pt]
-            \item[--] Analyzed high-fidelity kinetic impactor simulation results from NASA's Jet Propulsion Laboratory (JPL) for impacts in the (65803) Didymos binary asteroid system.
-            \item[--] Implemented a novel method to impart momentum changes in the Didymos system after the DART impact.
-            \item[--] Generated updated B-plane maps to conclude that the Didymos system will not collide with the Earth after the DART impact.
-            \item[--] Wrote MATLAB and Python parameter estimation packages to assess measurability of the heliocentric momentum enhancement from the DART impact.
-        \end{itemize}
-    \end{minipage}
-}
-\end{tabularx}
+\section{\sc Teaching Experience}
+{\bf University of Illinois at Urbana-Champaign} \hfill Urbana, IL\\
+Instructor: Siegfried Eggl \hfill 08/21 - 12/21\\
+Teaching Assistant for AE 352: Aerospace Dynamical Systems
+\begin{list_new}
+    \item Assisted in developing and teaching the curriculum's core dynamics course with aerospace applications.
+    \item Covered Newtonian, Lagrangian, and Hamiltonian mechanics for rigid body motion.
+    \item Advised 16 student teams with Project Clear Constellation, focusing on new methods to remove orbital debris.
+\end{list_new}
+{\bf University of Illinois at Urbana-Champaign} \hfill Urbana, IL\\
+Instructor: Huy Tran \hfill 01/20 - 05/20\\
+Undergraduate Course Assistant for AE 199: Aerospace Computing
+\begin{list_new}
+    \item Assisted with grading for a new course focused on using Python to solve problems such as analyzing air traffic data and designing Martian landers.
+    \item Worked with instructor to augment course for a fully online learning environment without affecting students due to the COVID-19 pandemic.
+\end{list_new}
 
-\begin{tabularx}{\linewidth}{ @{}l r@{} }
-\textbf{Aerospace Mission Analysis Laboratory} & \hfill Advisor: Dr. Zachary Putnam \\[3.75pt]
-Venus Aerogravity Assist Performance Assessment & \hfill Aug 2022 - Jan 2023 \\[3.75pt]
-    \multicolumn{2}{@{}X@{}}{
-        \begin{minipage}[t]{\linewidth}
-            \begin{itemize}[nosep,after=\strut, leftmargin=1em, itemsep=3pt]
-                \item[--] Analyzed Venus aerogravity assist missions to significantly reduce transit times to the outer solar system.
-                \item[--] Assessed the performance of blunt-body vehicles and waveriders using a MATLAB pipeline for varying trajectories and vehicle configurations.
-            \end{itemize}
-        \end{minipage}
-    }
-\end{tabularx}
+\section{\sc Skills}
+{\bf Programming Languages:} Python, C/C++, Fortran, MATLAB, R/RStudio
+\vspace{\myitemspacing}\newline
+{\bf Software Tools:} \LaTeX, Git
+\vspace{\myitemspacing}\newline
+{\bf Prepackaged Tools:} SPICE, MONTE, FreeFlyer, GMAT
+\vspace{\myitemspacing}\newline
+{\bf Operating Systems:} MacOS, Linux, Windows
+\vspace{\myitemspacing}\newline
+{\bf Languages:} English, Gujarati, Hindi, French
 
-% Teaching Experience
-\section{Teaching Experience}
-\begin{tabularx}{\linewidth}{ @{}l r@{} }
-\textbf{University of Illinois at Urbana-Champaign} & \hfill Instructor: Dr. Siegfried Eggl \\[3.75pt]
-Teaching Assistant for AE 352: Aerospace Dynamical Systems & \hfill Aug 2021 - Dec 2021 \\[3.75pt]
-    \multicolumn{2}{@{}X@{}}{
-        \begin{minipage}[t]{\linewidth}
-            \begin{itemize}[nosep,after=\strut, leftmargin=1em, itemsep=3pt]
-                \item[--] Focused on developing and teaching the curriculum's core dynamics course with aerospace applications.
-                \item[--] Syllabus covered Newtonian, Lagrangian, and Hamiltonian mechanics for rigid body motion.
-                \item[--] Guided 16 student teams with Project Clear Constellation, focusing on methods to remove orbital debris.
-            \end{itemize}
-        \end{minipage}
-    }
-\end{tabularx}
-% \begin{tabularx}{\linewidth}{ @{}l r@{} }
-%     \textbf{University of Illinois at Urbana-Champaign} & \hfill Instructor: Dr. Huy Tran \\[3.75pt]
-%     Undergraduate Course Assistant for AE 199: Aerospace Computing & \hfill Jan 2020 - May 2020 \\[3.75pt]
-%         \multicolumn{2}{@{}X@{}}{
-%             \begin{minipage}[t]{\linewidth}
-%                 \begin{itemize}[nosep,after=\strut, leftmargin=1em, itemsep=3pt]
-%                     \item[--] Assisted with grading for a new course focused on using Python to solve problems such as analyzing air traffic data and designing Martian landers.
-%                     \item[--] Worked with instructor to augment course for a fully online learning environment without affecting students due to the COVID-19 pandemic.
-%                 \end{itemize}
-%             \end{minipage}
-%         }
-% \end{tabularx}
-%----------------------------------------------------------------------------------------
-%	SKILLS
-%----------------------------------------------------------------------------------------
-\section{Skills}
-\begin{tabularx}{\linewidth}{@{}l X@{}}
-Programming Languages  &  Python, C/C++, Fortran, MATLAB, R/RStudio \\[3.75pt]
-Software Tools         &  \LaTeX, Git                               \\[3.75pt]
-Prepackaged Tools      &  SPICE, MONTE, GMAT, FreeFlyer             \\[3.75pt]
-Operating Systems      &  Linux, MacOS, Windows                     \\[3.75pt]
-Languages              &  English, Gujarati, Hindi, French          \\[3.75pt]
-\end{tabularx}
+\section{\sc Honors and Awards}
+{\bf NASA Space Technology Graduate Research Fellow} \hfill 08/22  - 12/25\\
+NSTGRO fellowship from NASA Space Technology Mission Directorate
+\vspace{\myitemspacing}\newline
+{\bf ARCS Foundation Scholar Award} \hfill 08/23 - 12/25\\
+Achievement Rewards for College Scientists (ARCS) Illinois Chapter
+\vspace{\myitemspacing}\newline
+{\bf Alumni Advisory Board Fellowship} \hfill 04/25\\
+UIUC Aerospace Engineering Department
+\vspace{\myitemspacing}\newline
+{\bf Best Visual Poster Award} \hfill 02/24\\
+UIUC Aerospace Engineering Department
+\vspace{\myitemspacing}\newline
+{\bf John C. Mather Nobel Scholar} \hfill 07/22 - 06/23\\
+National Space Grant Foundation
+\vspace{\myitemspacing}\newline
+{\bf Aerospace Excellence Award to DART Investigation Team} \hfill 05/23\\
+American Institute of Aeronautics and Astronautics (AIAA)
+\vspace{\myitemspacing}\newline
+{\bf Outstanding Academic and Research Achievement Fellowship} \hfill 04/23\\
+UIUC Aerospace Engineering Department
+\vspace{\myitemspacing}\newline
+{\bf President's Award} \hfill 08/17 - 12/20\\
+University of Illinois at Urbana-Champaign
+\vspace{\myitemspacing}\newline
+{\bf Dean's List} \hfill 01/19 - 05/19, 01/20 - 05/20\\
+University of Illinois at Urbana-Champaign
+\vspace{\myitemspacing}\newline
+{\bf Hans von Muldau Team Award for Best Project} \hfill 10/19\\
+70\textsuperscript{th} International Astronautical Congress
 
-%----------------------------------------------------------------------------------------
-%	AWARDS/AFFILIATIONS
-%----------------------------------------------------------------------------------------
-\section{Awards and Affiliations}
-\begin{tabularx}{\linewidth}{@{}l X@{}}
-\textbf{NASA Space Technology Graduate Research Opportunities Fellow} & \hfill Aug 2022 - present \\[3.75pt]
-NSTGRO fellowship from NASA Space Technology Mission Directorate & \hfill \\[3.75pt]
-\end{tabularx}
-\begin{tabularx}{\linewidth}{@{}l X@{}}
-\textbf{ARCS Foundation Scholar Award} & \hfill Aug 2023 - present \\[3.75pt]
-Achievement Rewards for College Scientists (ARCS) Foundation Illinois Chapter & \hfill \\[3.75pt]
-\end{tabularx}
-\begin{tabularx}{\linewidth}{@{}l X@{}}
-\textbf{Best Visual Poster Award} & \hfill Feb 2024 \\[3.75pt]
-UIUC Aerospace Engineering Department & \hfill \\[3.75pt]
-\end{tabularx}
-\begin{tabularx}{\linewidth}{@{}l X@{}}
-\textbf{Double Asteroid Redirection Test (DART) Investigation Team Member} & \hfill Dec 2020 - Nov 2023 \\[3.75pt]
-NASA/Johns Hopkins University Applied Physics Laboratory (JHUAPL) & \hfill \\[3.75pt]
-\end{tabularx}
-\begin{tabularx}{\linewidth}{@{}l X@{}}
-\textbf{John C. Mather Nobel Scholar} & \hfill Jul 2022 - Jun 2023 \\[3.75pt]
-National Space Grant Foundation & \hfill \\[3.75pt]
-\end{tabularx}
-\begin{tabularx}{\linewidth}{@{}l X@{}}
-\textbf{AIAA Award for Aerospace Excellence for DART Investigation Team} & \hfill May 2023 \\[3.75pt]
-American Institute of Aeronautics and Astronautics (AIAA) & \hfill \\[0.75pt]
-\end{tabularx}
-\begin{tabularx}{\linewidth}{@{}l X@{}}
-\textbf{Fellowship for Outstanding Academic and Research Achievement} & \hfill Apr 2023 \\[3.75pt]
-UIUC Aerospace Engineering Department & \hfill \\[3.75pt]
-\end{tabularx}
-\begin{tabularx}{\linewidth}{@{}l X@{}}
-\textbf{President's Award} & \hfill Aug 2017 - Dec 2020 \\[3.75pt]
-University of Illinois at Urbana-Champaign & \hfill \\[3.75pt]
-\end{tabularx}
-% \begin{tabularx}{\linewidth}{@{}l X@{}}
-% \textbf{Hans von Muldau Team Award for Best Project} & \hfill October 2019 \\[3.75pt]
-% 70\textsuperscript{th} International Astronautical Congress (IAC), Washington D.C. & \hfill \\[3.75pt]
-% \end{tabularx}
-% \begin{tabularx}{\linewidth}{@{}l X@{}}
-% \textbf{Dean's List} & \hfill Spring 2019, Spring 2020 \\[3.75pt]
-% University of Illinois at Urbana-Champaign & \hfill \\[3.75pt]
-% \end{tabularx}
+\section{\sc Professional Activities and Affiliations}
+{\bf DART Investigation Team Member}\\
+NASA Double Asteroid Redirection Test (DART) Mission Science Team
 
-%----------------------------------------------------------------------------------------
-%	PUBLICATIONS
-%----------------------------------------------------------------------------------------
-\newpage
-\section{Journal Articles}
+{\bf Hera Investigation Team Extended Member}\\
+ESA Hera Mission Science Team
+
+{\bf Reviewer Activities}
+\begin{list_new}
+    \item NASA Yearly Opportunities for Research in Planetary Defense (YORPD)
+\end{list_new}
+
+{\bf Memberships (Current and Past)}
+\begin{list_new}
+    \item American Astronomical Society (AAS)
+    \item American Geophysical Union (AGU)
+    \item American Astronautical Society (AAS)
+    \item American Institute of Aeronautics and Astronautics (AIAA)
+\end{list_new}
+
+\section{\sc Publications}
+\csuse{entrycount:1} Journal Articles\\
+\csuse{entrycount:2} Conference and Meeting Proceedings\\
+\csuse{entrycount:3} Invited Public Talks and Seminars
+
 \begin{refsection}[pub_journal.bib]
 \nocite{*}
+\ifallpubs
+\section{\sc Journal Articles}
+\vspace{0.15in}
 \printbibliography[heading=none]
+\else
+\fi
 \end{refsection}
 
-\section{Conference and Meeting Proceedings}
 \begin{refsection}[pub_conf.bib]
 \nocite{*}
+\ifallpubs
+\section{\sc Conference and Meeting Proceedings}
+\vspace{0.15in}
 \printbibliography[heading=none]
+\else
+\fi
 \end{refsection}
 
-\section{Invited Talks/Seminars}
 \begin{refsection}[pub_invited.bib]
 \nocite{*}
+\ifallpubs
+\section{\sc Invited Public Talks and Seminars}
+\vspace{0.15in}
 \printbibliography[heading=none]
+\else
+\fi
 \end{refsection}
 
-%----------------------------------------------------------------------------------------
-%	LAST UPDATED
-%----------------------------------------------------------------------------------------
-% \vfill
-% \center{\footnotesize Last updated: \today}
-% \AtEndDocument{\vfill%
-%     \center{\footnotesize Last updated: \today}
-% }
+\end{resume}
+\thispagestyle{lastpage}
 \end{document}
