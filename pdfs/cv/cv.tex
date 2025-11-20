@@ -90,16 +90,13 @@
 \begin{resume}
 
 \section{\sc Contact Information}
-104 S Wright St., 307 Talbot Laboratory \hfill
+104 S Wright St, 307 Talbot Laboratory \hfill
 \ifphone
 \input{phone.num} \textbar\,
 \fi
 \href{mailto:makadia2@illinois.edu}{makadia2@illinois.edu}\\
 Urbana, IL 61801 \hfill
 \href{https://rahil-makadia.github.io/}{https://rahil-makadia.github.io}
-
-\section{\sc Objective Statement}
-Imminent Ph.D. graduate in Aerospace Engineering from UIUC with a focus on solar system dynamics and planetary defense. Seeking the next professional chapter to leverage my skills in orbit determination and trajectory analysis.
 
 \section{\sc Education}
 {\bf University of Illinois at Urbana-Champaign (UIUC)}\hfill Urbana, IL\\
@@ -113,21 +110,23 @@ Dissertation: Design and Modeling of Kinetic Impact Missions for Deflecting Near
 B.S. in Aerospace Engineering with Honors \hfill {08/17 - 12/20}
 
 \section{\sc Work Experience}
-{\bf NASA Goddard Space Flight Center} \hfill Greenbelt, MD\\
-Visiting Technologist \hfill 05/25 - 07/25\\
-Advisors: Brent Barbee, Kenneth Getzandanner
-\begin{list_new}
-    \item Leveraged proven mission analysis tools to design kinetic impact missions.
-    \item Validated kinetic impact mission trajectories for mapping gravitational keyholes on the surface of (101955) Bennu.
-\end{list_new}
 {\bf NASA Jet Propulsion Laboratory (JPL)} \hfill Pasadena, CA\\
-Visiting Technologist \hfill 05/23 - 08/23, 03/24 - 06/24\\
+Visiting Technologist \hfill 05/23 - 08/23, 03/24 - 06/24, 09/25 - 12/25\\
 Advisors: Steven Chesley, Davide Farnocchia
 \begin{list_new}
     \item Validated an efficient orbit propagator with sub\,-1\,km position accuracy over 250 years compared to JPL's internal software.
     \item Developed an orbit determination submodule around the propagator with sub\,-\,1$\sigma$ agreement with JPL orbit solutions.
     \item Tested a publicly available Python package, \textsc{grss}, to allow the scientific community to accurately propagate and compute the orbits of solar system objects such as asteroids and comets.
     \item Implemented ability to compute locations of gravitational keyholes, which are predictors of future asteroid impacts with Earth.
+    \item Implemented a novel adaptive method to perform initial orbit determination of solar system objects.
+    \item Upgraded Scout, the short-term impact monitoring system for newly discovered near-Earth objects.
+\end{list_new}
+{\bf NASA Goddard Space Flight Center} \hfill Greenbelt, MD\\
+Visiting Technologist \hfill 05/25 - 07/25\\
+Advisors: Brent Barbee, Kenneth Getzandanner
+\begin{list_new}
+    \item Leveraged proven mission analysis tools to design kinetic impact missions.
+    \item Validated kinetic impact mission trajectories for mapping gravitational keyholes on the surface of (101955) Bennu.
 \end{list_new}
 {\bf NASA Goddard Space Flight Center} \hfill Greenbelt, MD\\
 OSIRIS-REx/OSIRIS-APEX CelNav Intern \hfill 06/22 - 08/22\\
@@ -161,6 +160,7 @@ Gauss-Radau Small-body Simulator (\textsc{grss})
     \item Implemented a high-accuracy propagator for asteroids and comets based on the \texttt{RADAU} and \texttt{IAS15} integrators.
     \item Developed an orbit determination code for estimating small body orbits using optical and radar observations.
     \item Released an open-source Python library with a C++ core codebase for use by the planetary defense community.
+    \item Utilized this library to study the orbit of the then-newly discovered interstellar object 3I/ATLAS (C/2025 N1).
 \end{list_new}
 State Transition Matrices (STMs) via the Unscented Transform
 \begin{list_new}
@@ -177,7 +177,7 @@ Venus Aerogravity Assist Performance Assessment
 \end{list_new}
 
 \section{\sc Skills}
-{\bf Programming Languages:} Python, C/C++, Fortran, MATLAB, R/RStudio, Perl
+{\bf Programming Languages:} Fortran, Perl, Python, C/C++, MATLAB, SQL, R
 \vspace{\myitemspacing}\newline
 {\bf Software Tools:} \LaTeX, Git
 \vspace{\myitemspacing}\newline
@@ -220,14 +220,14 @@ University of Illinois at Urbana-Champaign
 \vspace{\myitemspacing}\newline
 {\bf Dean's List} \hfill 05/19, 05/20\\
 University of Illinois at Urbana-Champaign
-\vspace{\myitemspacing}\newline
-{\bf Hans von Muldau Team Award for Best Project} \hfill 10/19\\
-70\textsuperscript{th} International Astronautical Congress
+% \vspace{\myitemspacing}\newline
+% {\bf Hans von Muldau Team Award for Best Project} \hfill 10/19\\
+% 70\textsuperscript{th} International Astronautical Congress
 
 \section{\sc Publications}
 \csuse{entrycount:1} Journal Articles\\
 \csuse{entrycount:2} Conference and Meeting Proceedings\\
-\csuse{entrycount:3} Invited Contributions
+\csuse{entrycount:3} Invited Seminars and Talks
 
 \section{\sc Research Grants}
 {\bf NASA Space Technology Graduate Research Fellowship}
@@ -271,8 +271,8 @@ Undergraduate Course Assistant for AE 199: Aerospace Computing
     \item NASA Double Asteroid Redirection Test (DART) Mission Science Investigation Team Member
     \item ESA Hera Mission Science Investigation Team Extended Member
 \end{list_new}
-
-{\bf Reviewer Activities}
+\newpage
+{\bf Review Panel Activities}
 \begin{list_new}
     \item NASA Yearly Opportunities for Research in Planetary Defense (YORPD)
 \end{list_new}
