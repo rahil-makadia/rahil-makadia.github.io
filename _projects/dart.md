@@ -59,7 +59,7 @@ Additionally, the above figure shows the deflection of the Didymos system for di
 
 <h1 style="text-align: center;"
 >
-My Work (Post-impact)
+My Work (Post-impact in 2023)
 </h1>
 Once we knew that the DART impact would not put the Didymos system on collision course with the Earth, We started working on how we could measure the exact value of $\beta_\odot$ using both pre- and post-impact observations. To do this we considered multiple observation scenarios and studied the Signal-to-Noise Ratio (SNR) of $\beta_\odot$ in each scenario. The below table shows the SNR of $\beta_\odot$ for four different observation scenarios.
 

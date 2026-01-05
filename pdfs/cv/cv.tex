@@ -49,6 +49,23 @@
 \pagestyle{fancy}
 \renewcommand{\headrulewidth}{0pt}
 \renewcommand{\footrulewidth}{0pt}
+% Set up the header for the first page
+\fancypagestyle{firstpage}{
+    \vspace{-0.75in}
+    \setlength{\headheight}{0.75in}
+    \lhead{
+        \hspace{\myspacing} 104 S Wright St\\
+        \hspace{\myspacing} 307 Talbot Laboratory\\
+        \hspace{\myspacing} Urbana, IL 61801
+    } % Left header
+    \rhead{
+        \ifphone
+        \input{phone.num}\\
+        \fi
+        \href{mailto:makadia2@illinois.edu}{makadia2@illinois.edu}\\
+        \href{https://rahil-makadia.github.io/}{rahil-makadia.github.io}
+    }
+}
 \fancypagestyle{lastpage}{
     \fancyfoot[C]{
         \hspace{\myspacing}\thepage\\
@@ -82,21 +99,13 @@
 
 \begin{document}
 
+\thispagestyle{firstpage}
 \hspace{\myspacing}
 \hspace{2.2in}
 \huge{\bf Rahil Makadia}
 
 \normalsize
 \begin{resume}
-
-\section{\sc Contact Information}
-104 S Wright St, 307 Talbot Laboratory \hfill
-\ifphone
-\input{phone.num} \textbar\,
-\fi
-\href{mailto:makadia2@illinois.edu}{makadia2@illinois.edu}\\
-Urbana, IL 61801 \hfill
-\href{https://rahil-makadia.github.io/}{https://rahil-makadia.github.io}
 
 \section{\sc Education}
 {\bf University of Illinois at Urbana-Champaign (UIUC)}\hfill Urbana, IL\\
@@ -111,15 +120,15 @@ B.S. in Aerospace Engineering with Honors \hfill {08/17 - 12/20}
 
 \section{\sc Work Experience}
 {\bf NASA Jet Propulsion Laboratory (JPL)} \hfill Pasadena, CA\\
-Visiting Technologist \hfill 05/23 - 08/23, 03/24 - 06/24, 09/25 - 12/25\\
+Visiting Technologist \hfill 09/25 - 12/25, 03/24 - 06/24, 05/23 - 08/23\\
 Advisors: Steven Chesley, Davide Farnocchia
 \begin{list_new}
-    \item Validated an efficient orbit propagator with sub\,-1\,km position accuracy over 250 years compared to JPL's internal software.
-    \item Developed an orbit determination submodule around the propagator with sub\,-\,1$\sigma$ agreement with JPL orbit solutions.
-    \item Tested a publicly available Python package, \textsc{grss}, to allow the scientific community to accurately propagate and compute the orbits of solar system objects such as asteroids and comets.
-    \item Implemented ability to compute locations of gravitational keyholes, which are predictors of future asteroid impacts with Earth.
+    \item Upgraded JPL's Scout, the short-term impact monitoring system for newly discovered near-Earth objects, making the system 300\% faster.
     \item Implemented a novel adaptive method to perform initial orbit determination of solar system objects.
-    \item Upgraded Scout, the short-term impact monitoring system for newly discovered near-Earth objects.
+    \item Produced ability to compute locations of gravitational keyholes, which are predictors of future asteroid impacts with Earth.
+    \item Wrote an efficient orbit propagator with sub\,-1\,km position accuracy over 250 years compared to JPL's orbit software.
+    \item Developed an orbit determination submodule around the propagator with sub\,-\,1$\sigma$ agreement with JPL orbit solutions.
+    \item Released a publicly available Python package, \href{https://rahil-makadia.github.io/grss/}{\textsc{grss}}, to allow the planetary defense scientific community to to study solar system objects.
 \end{list_new}
 {\bf NASA Goddard Space Flight Center} \hfill Greenbelt, MD\\
 Visiting Technologist \hfill 05/25 - 07/25\\
@@ -142,11 +151,11 @@ Advisors: Kenneth Getzandanner, Andrew Liounis
 Advisor: Siegfried Eggl \hfill 01/21 - 12/25\\
 NASA's Double Asteroid Redirection Test (DART) Mission
 \begin{list_new}
-    \item Analyzed high-fidelity kinetic ejecta dynamics simulation results from JPL for impacts in the (65803) Didymos binary asteroid system.
+    \item Analyzed high-fidelity ejecta dynamics simulation results from JPL for impacts in the (65803) Didymos binary asteroid system.
     \item Implemented a novel method to model momentum changes in the Didymos system after the DART impact.
     \item Generated updated B-plane maps to conclude that the Didymos system will not collide with the Earth after the DART impact.
     \item Built MATLAB and Python parameter estimation packages to assess measurability of the heliocentric momentum enhancement from the DART impact.
-    \item Leveraged high-precision stellar occultation measurements in 2024 and 2025 to measure the heliocentric changes in an asteroid's orbit for the first time in human history.
+    \item Leveraged ultra-precision occultation measurements in 2024 and 2025 to detect heliocentric changes in an asteroid's orbit for the first time in human history.
 \end{list_new}
 Keyhole-aware Deflection Site Selection for Asteroids
 \begin{list_new}
@@ -155,12 +164,12 @@ Keyhole-aware Deflection Site Selection for Asteroids
     \item Created impact probability maps on the surface of different asteroid shapes to directly compare the safety of available deflection sites.
     \item Applied the new method to a theoretical kinetic impactor mission design for asteroid (101955) Bennu that would avoid triggering future Earth impacts.
 \end{list_new}
-Gauss-Radau Small-body Simulator (\textsc{grss})
+\href{https://rahil-makadia.github.io/grss/}{Gauss-Radau Small-body Simulator (\textsc{grss})}
 \begin{list_new}
     \item Implemented a high-accuracy propagator for asteroids and comets based on the \texttt{RADAU} and \texttt{IAS15} integrators.
     \item Developed an orbit determination code for estimating small body orbits using optical and radar observations.
     \item Released an open-source Python library with a C++ core codebase for use by the planetary defense community.
-    \item Utilized this library to study the orbit of the then-newly discovered interstellar object 3I/ATLAS (C/2025 N1).
+    \item Utilized this library to study the orbit of the newly discovered interstellar object 3I/ATLAS (C/2025 N1).
 \end{list_new}
 State Transition Matrices (STMs) via the Unscented Transform
 \begin{list_new}
@@ -168,6 +177,7 @@ State Transition Matrices (STMs) via the Unscented Transform
     \item Novel STMs do not require time-consuming partial derivatives or problem-specific finite difference steps, enabling more robust implementation.
     \item Unscented STMs are a new, easy, and reliable method to compute STMs with unbounded applications in dynamical systems.
 \end{list_new}
+\newpage
 {\bf Aerospace Mission Analysis Laboratory} \hfill Urbana, IL\\
 Advisor: Zachary Putnam \hfill 08/22 - 01/23\\
 Venus Aerogravity Assist Performance Assessment
@@ -177,7 +187,7 @@ Venus Aerogravity Assist Performance Assessment
 \end{list_new}
 
 \section{\sc Skills}
-{\bf Programming Languages:} Fortran, Perl, Python, C/C++, MATLAB, SQL, R
+{\bf Programming Languages:} Fortran, Python, C/C++, MATLAB, Perl, SQL, R
 \vspace{\myitemspacing}\newline
 {\bf Software Tools:} \LaTeX, Git
 \vspace{\myitemspacing}\newline
@@ -229,6 +239,7 @@ University of Illinois at Urbana-Champaign
 \csuse{entrycount:2} Conference and Meeting Proceedings\\
 \csuse{entrycount:3} Invited Seminars and Talks
 
+\newpage
 \section{\sc Research Grants}
 {\bf NASA Space Technology Graduate Research Fellowship}
 \begin{list_new}
@@ -271,7 +282,7 @@ Undergraduate Course Assistant for AE 199: Aerospace Computing
     \item NASA Double Asteroid Redirection Test (DART) Mission Science Investigation Team Member
     \item ESA Hera Mission Science Investigation Team Extended Member
 \end{list_new}
-\newpage
+
 {\bf Review Panel Activities}
 \begin{list_new}
     \item NASA Yearly Opportunities for Research in Planetary Defense (YORPD)
